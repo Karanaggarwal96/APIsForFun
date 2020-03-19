@@ -11,6 +11,9 @@ function getMovies(searchText){
     .then((response) => {
       console.log(response);
       let movies = response.data.Search;
+	   if(response.data.Error){
+        alert("No result found!!");
+      }
       let output = '';
       $.each(movies, (index, movie) => {
         output += `

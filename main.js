@@ -15,6 +15,9 @@ function setQuery(evt) {
 function getResults (query) {
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(weather => {
+      if(weather.status!="200"){
+        alert("No results found");
+      }
       return weather.json();
     }).then(displayResults);
 }
